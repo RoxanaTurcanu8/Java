@@ -1,39 +1,21 @@
 package model;
 
-public class Student {
+/**
+ *
+ */
 
-    String nume;
-    String prenume;
+public class Student extends Persoana {
+
     int grupa;
-   
 
     public Student() {
-        nume = "";
-        prenume = "";
-        grupa = 0;
+        super("","");
     }
 
     public Student(String nume, String prenume, int grupa) {
-        this.nume = nume;
-        this.prenume = prenume;
+        super(nume,prenume);
         this.grupa = grupa;
 
-    }
-
-    public String getNume() {
-        return nume;
-    }
-
-    public String getPrenume() {
-        return prenume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
     }
 
     public int getGrupa() {
@@ -51,6 +33,5 @@ public class Student {
         return "Student{" + "nume=" + nume + ", prenume=" + prenume + ", grupa="
                 + grupa + '}';
     }
-    
-   
+
 }

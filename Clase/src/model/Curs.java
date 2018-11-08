@@ -5,14 +5,26 @@ public class Curs {
     String nume;
     String descriere;
     Profesor profesor;
-    /* private */ Student[] studenti;
+    Student[] studenti;
+    int[] note; //un array de note;
+    
 
     public Curs() {
         nume = "";
         descriere = "";
         profesor = new Profesor();
         studenti = new Student[0];
+        note = new int[0];
 
+    }
+    public Curs(String nume,String descriere){
+        this.nume=nume;
+        this.descriere=descriere;
+        profesor = new Profesor();
+        studenti = new Student[0];
+        note = new int[0];
+    
+   
     }
 
     public Curs(String nume, String descriere, Profesor profesor,
@@ -21,6 +33,7 @@ public class Curs {
         this.descriere = descriere;
         this.profesor = profesor;
         this.studenti = studenti;
+        note = new int[studenti.length];
 
     }
 
@@ -52,14 +65,18 @@ public class Curs {
         str += "Profesor " + this.profesor + "\n";
         str += "Studenti :\n";
         if (studenti != null) {
+            int index=0;
             for (Student s : studenti) {
-                str += "\t" + s + "\n"; //\t este un artificiu;
+                str += "\t" + s ; //\t este un artificiu;
+                str += " - Nota Studentului: " + this.note[index] + "\n";
+               index++;
             }
         } else {
             str += "lipsa";
         }
-
+        
         return str;
+        
     }
 
     public Student[] getStudenti() {
@@ -70,26 +87,37 @@ public class Curs {
         this.studenti = studenti;
     }
 
+  
+
     public void AddStudent(Student s) {
 
         Student[] aux = new Student[this.studenti.length + 1];
+        int[] auxnote = new int[studenti.length+1];
         System.arraycopy(this.studenti, 0, aux, 0, this.studenti.length);
+        System.arraycopy(note, 0, auxnote, 0, this.studenti.length);
         aux[aux.length - 1] = s;
+        auxnote[auxnote.length -1]=0;
         studenti = aux;
+        note=auxnote;
     }
 
     public void RemoveStudent(String numele) {
         Student[] aux = new Student[this.studenti.length - 1];
+        int[] auxnote= new int[note.length-1];
         int index = 0;
         for (Student n : studenti) {
 
             if (numele.equals(n.nume)) {
                 System.arraycopy(studenti, 0, aux, 0, index);
+                System.arraycopy(note, 0,auxnote , 0, index);
                 if (index != studenti.length - 1) {
                     System.arraycopy(studenti, index + 1, aux, index, studenti.length - 1 - index);
+                    System.arraycopy(note, index + 1, auxnote, index, studenti.length - 1 - index);
                 }
                 studenti = new Student[studenti.length - 1];
+                note = new int[studenti.length-1];
                 System.arraycopy(aux, 0, studenti, 0, aux.length);
+                System.arraycopy(auxnote, 0, note, 0, auxnote.length); 
                 break;
             }
             index++;
@@ -119,6 +147,21 @@ public class Curs {
         }
     }
     
-    
+    public void AddNota(Student StudentulNotat,int nota)
+    {
+        int index=0;
+        for(Student s:studenti)
+        {
+            if(s.nume.equals(StudentulNotat.nume))
+            {
+                if(s.prenume.equals(StudentulNotat.prenume))
+                {
+                    note[index]=nota;
+                
+                }
+            }
+            index++;
+        }
+    }
    
 }

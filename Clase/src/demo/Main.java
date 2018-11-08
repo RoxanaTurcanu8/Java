@@ -6,24 +6,32 @@ public class Main
 {
     
     public static void main(String args[]){
-            ManagerCursuri m = new ManagerCursuri();
-             m.AfiseazaToateCursurile();
+            ManagerCursMock m = new ManagerCursMock();
              
+             m.Update(new Curs("JAVA","programare"),"del");
+             System.out.println("=================================");
+             m.Delete(new Curs("JAVA",""));
+             m.Search(new Curs("matemtici speciale",""));
+             m.cursuri[1].AddStudent(new Student("Turcanu", "Roxana", 4));
+             m.cursuri[1].AddNota(new Student("Turcanu","Roxana", 4),10);
+             m.AfiseazaToateCursurile();
+           
+           
          
-             System.out.println("ADAUGARE STUDENT => ");
+            /* System.out.println("ADAUGARE STUDENT => ");
              m.cursuri[0].AddStudent(new Student("Turcanu", "Roxana", 4));
              m.AfiseazaToateCursurile();
-             System.out.println("===================================");
+             System.out.println("===================================");*/
              
-             System.out.println("STERGERE STUDENT => " );
+            /* System.out.println("STERGERE STUDENT => " );
              m.cursuri[1].RemoveStudent("Zaharia");
              m.AfiseazaToateCursurile();
-             System.out.println("===================================");
+             System.out.println("===================================");*/
              
-             System.out.println("STERGERE PROF => ");
+            /* System.out.println("STERGERE PROF => ");
              m.cursuri[1].RemoveProf();
              System.out.println("ADAUGARE PROF => ");
-             m.cursuri[0].AdaugaProf(new Profesor("Iosub", "Alexandru"));
+             //m.cursuri[2].AdaugaProf(new Profesor("I", "A"));
              m.AfiseazaToateCursurile();
              System.out.println("===================================");
              
@@ -39,9 +47,8 @@ public class Main
              
              System.out.println("===================================");
              System.out.println("AFISARE CURSURI CURENTE => ");
-             m.AfisCursuri();
+             m.AfisCursuri();*/
          
-            
     }
 
 }

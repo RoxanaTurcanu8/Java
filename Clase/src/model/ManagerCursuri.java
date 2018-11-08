@@ -13,31 +13,26 @@ import java.sql.Statement;
  *
  * @author Roxy
  */
-public class ManagerCursuri {
-    public Curs[] cursuri;
-
-public ManagerCursuri(){
-    cursuri= new Curs[]{
-    new Curs(),
-        
-         new Curs("Mate", "Ceva mate",new Profesor("ion","ionescu"),
-            new Student[]{new Student("Zaharia","Ionel",1),new Student("C","D",1)}),
-   
-
-         new Curs("POO","JAVA",new Profesor("bla nume","bla prenume"),
-                 new Student[]{new Student("C","D",1),new Student("A","E",1)})
- 
-        };
-            
-
-}
-public void AfiseazaToateCursurile()
+public abstract class ManagerCursuri {
+   public Curs[] cursuri;
+    
+   public ManagerCursuri(){
+       cursuri = new Curs[0];
+    }
+    
+    public void AfiseazaToateCursurile()
 {
    for(Curs c : cursuri)
    {
        System.out.println(c);
    }
 }
+
+
+
+
+
+/*
 public void AddNew(Curs c)
 {
     Curs[] aux= new Curs[this.cursuri.length+1];
@@ -99,6 +94,8 @@ public void RemoveCurs(String NumeCurs)
         {
             System.out.println(c.nume);
         }
-    }
+    }*/
+
+    
 
 }
