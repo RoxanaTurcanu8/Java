@@ -14,6 +14,7 @@ public class Main
              m.Search(new Curs("matemtici speciale",""));
              m.cursuri[1].AddStudent(new Student("Turcanu", "Roxana", 4));
              m.cursuri[1].AddNota(new Student("Turcanu","Roxana", 4),10);
+             m.cursuri[1].AdaugaProf(new Profesor("I", "A"));
              m.AfiseazaToateCursurile();
            
            
@@ -31,7 +32,7 @@ public class Main
             /* System.out.println("STERGERE PROF => ");
              m.cursuri[1].RemoveProf();
              System.out.println("ADAUGARE PROF => ");
-             //m.cursuri[2].AdaugaProf(new Profesor("I", "A"));
+            m.cursuri[2].AdaugaProf(new Profesor("I", "A"));
              m.AfiseazaToateCursurile();
              System.out.println("===================================");
              
