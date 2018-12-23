@@ -9,11 +9,12 @@ package model;
  *
  * @author Roxy
  */
-public interface IOperatiiManagerCurs extends iOperatii<Curs> {
+public interface iOperatii<T> {
 
-    public void Update(Curs c, String NumeVechi);
+    public void Add(T t);
 
-    public void Delete(String Nume);
-    //register si unregister
+    //public void Delete(T t);
+    //public void Update(T t);
+    public void Search(T t);
 
 }

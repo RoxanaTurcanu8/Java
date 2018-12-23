@@ -1,55 +1,42 @@
 package demo;
 
+import static java.nio.file.Files.list;
+import static java.rmi.Naming.list;
+import static java.util.Collections.list;
 import model.*;
 
-public class Main 
-{
-    
-    public static void main(String args[]){
-            ManagerCursMock m = new ManagerCursMock();
-             
-             m.Update(new Curs("JAVA","programare"),"del");
-             System.out.println("=================================");
-             m.Delete(new Curs("JAVA",""));
-             m.Search(new Curs("matemtici speciale",""));
-             m.cursuri[1].AddStudent(new Student("Turcanu", "Roxana", 4));
-             m.cursuri[1].AddNota(new Student("Turcanu","Roxana", 4),10);
-             m.cursuri[1].AdaugaProf(new Profesor("I", "A"));
-             m.AfiseazaToateCursurile();
-           
-           
+public class Main {
+
+    public static void main(String args[]) {
+        try {
+            ManagerCursCSV m = new ManagerCursCSV();
+			m.CitesteDateDinFisiere();
+                        
+                        m.lista.get(1).AddStudent(new Student(3, "bla", "bla", 0));
+                        //m.lista.add(e)
+                                        
+                        
+                        m.ScrieDatedInFisier();
+                        m.AfiseazaTot();
+                        
+            
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
          
-            /* System.out.println("ADAUGARE STUDENT => ");
-             m.cursuri[0].AddStudent(new Student("Turcanu", "Roxana", 4));
-             m.AfiseazaToateCursurile();
-             System.out.println("===================================");*/
-             
-            /* System.out.println("STERGERE STUDENT => " );
-             m.cursuri[1].RemoveStudent("Zaharia");
-             m.AfiseazaToateCursurile();
-             System.out.println("===================================");*/
-             
-            /* System.out.println("STERGERE PROF => ");
-             m.cursuri[1].RemoveProf();
-             System.out.println("ADAUGARE PROF => ");
-            m.cursuri[2].AdaugaProf(new Profesor("I", "A"));
-             m.AfiseazaToateCursurile();
-             System.out.println("===================================");
-             
-             System.out.println("MODIF CURS => ");
-             m.ModifCurs("POO", "PCLP I", "C++");
-             System.out.println("STERGERE STUDENT => ");
-             m.cursuri[2].ModifStudent("C", "Cazacu", "Dumitru", 2);
-             m.AfiseazaToateCursurile();
-             System.out.println("===================================");
-             
-             System.out.println("AFISARE STUDENTII DE LA UN CURS(ex PCLP I) => ");
-             m.StudentiiLaCurs("PCLP I");
-             
-             System.out.println("===================================");
-             System.out.println("AFISARE CURSURI CURENTE => ");
-             m.AfisCursuri();*/
-         
+        /*Inainte de citirea din fisiere:
+        ManagerCursMock m = new ManagerCursMock();
+        m.Update(new Curs("Java", "programare"), "dec");
+            System.out.println("=================================");
+            m.Delete("Java");
+            m.Search(new Curs("matematici speciale", "serii fourier", new Profesor("D", "F"), null));
+            ((Curs) m.getLista().get(0)).AddStudent(new Student("Turcanu", "Roxana", 2));
+            ((Curs) m.getLista().get(0)).AddNota(((Curs) m.getLista().get(0)).getStudenti().get(0), 10);
+            ((Curs)m.getLista().get(0)).AdaugaProf(new Profesor("Ionel", "Popescu"));
+            m.Search(new Curs("Modele Spice","circuite"));
+            m.AfiseazaTot();*/
+        
     }
 
 }
