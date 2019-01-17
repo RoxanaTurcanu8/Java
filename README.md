@@ -1,2 +1,2 @@
 # Java
-- in acest repo imi voi pastra temele;
+- in acest repo imi voi pastra laboratoarele;
